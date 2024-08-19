@@ -1,0 +1,65 @@
+Even and odd elements at even and odd positions
+Difficulty: EasyAccuracy: 26.56%Submissions: 15K+Points: 2
+Given an array arr[], the task is to arrange the array such that odd elements occupy the odd positions and even elements occupy the even positions. The order of elements must remain the same. Consider zero-based indexing. After printing according to conditions, if remaining, print the remaining elements as it is.
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 4, 5, 6]
+Output: [2, 1, 4, 3, 6, 5]
+Explanation: Even elements are at even position and odd elements are at odd position keeping the order maintained.
+Input:  arr[] = [3, 2, 4, 1]
+Output: [2, 3, 4, 1]
+Expected Time Complexity: O(n).
+Expected Auxiliary Space: O(n).
+
+Constraints:
+2 ≤ arr.size() ≤ 106
+1 ≤ arr[i] ≤arr.size()
+
+
+
+
+SOLUTION : 
+
+
+
+
+Class Solution {
+
+  public:
+    vector<int> arrangeOddAndEven(vector<int>& arr) {
+        // Your code goes here
+        int n = arr.size();
+        vector<int> newx;
+        vector<int> odd;
+        vector<int> even;
+        
+        for(int i = 0;i<n;i++)
+        {   
+           
+            if(arr[i]%2==0){
+                even.push_back(arr[i]);
+            }
+            else if(arr[i]%2!=0)
+            {
+                odd.push_back(arr[i]);
+            }
+        }
+        int j = 0;
+        int k = 0;
+        while(j<n && k<n)
+        {
+            if(j<even.size())
+            {
+                newx.push_back(even[j]);
+            }
+            if(k<odd.size())
+            {
+                newx.push_back(odd[k]);
+            }
+            j++;
+            k++;
+        }
+        return newx;
+    }
+};
