@@ -1,0 +1,35 @@
+import java.util.*;
+class main
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0;i<n;i++)
+        {
+            arr[i] = in.nextInt();
+        }
+      
+        List<Integer>al = new ArrayList<>();
+        rec(al,arr,0,0);
+        for(int i : al)
+        {
+            System.out.print(i+" ");
+        }
+        
+        
+    }
+    public static void rec(List<Integer>al,int[] arr,int i,int sum)
+    {
+        if(i == arr.length )
+        {
+            al.add(sum);
+            return;
+        }
+      
+        rec(al,arr,i+1,sum+arr[i]);
+       
+        rec(al,arr,i+1,sum);
+    }
+}
